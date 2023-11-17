@@ -127,31 +127,45 @@ void find_func(char *opcode, char *value, int ln, int format)
  */
 void call_fun(op_func func, char *op, char *val, int ln, int format)
 {
-	stack_t *node;
-	int flag;
-	int i;
+    stack_t *node;
+    int flag;
+    
+    flag = 1;
 
-	flag = 1;
-	if (strcmp(op, "push") == 0)
-	{
-		if (val != NULL && val[0] == '-')
-		{
-			val = val + 1;
-			flag = -1;
-		}
-		if (val == NULL)
-			err(5, ln);
-		for (i = 0; val[i] != '\0'; i++)
-		{
-			if (isdigit(val[i]) == 0)
-				err(5, ln);
-		}
-		node = create_node(atoi(val) * flag);
-		if (format == 0)
-			func(&node, ln);
-		if (format == 1)
-			add_to_queue(&node, ln);
-	}
-	else
-		func(&head, ln);
+    if (strcmp(op, "push") == 0)
+    {
+        if (val != NULL && val[0] == '-')
+        {
+            val = val + 1;
+            flag = -1;
+        }
+
+        if (val == NULL || !is_valid_integer(val))
+            err(5, ln);
+
+        node = create_node(atoi(val) * flag);
+
+        if (format == 0)
+            func(&node, ln);
+        else if (format == 1)
+            add_to_queue(&node, ln);
+    }
+    else
+    {
+        func(&head, ln);
+    }
+}
+
+int is_valid_integer(const char *str)
+{
+    if (str == NULL || *str == '\0')
+        return 0;
+
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (!isdigit(str[i]))
+            return 0;
+    }
+
+    return 1;
 }
