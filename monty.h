@@ -68,4 +68,6 @@ void more_err(int error_code, ...);
 void string_err(int error_code, ...);
 void rotr(stack_t **, unsigned int);
 
+int is_valid_integer(const char *str)
+
 #endif
