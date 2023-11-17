@@ -5,7 +5,7 @@
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void print_char(stack_t **stack, unsigned int line_number)
+void pchar(stack_t **stack, unsigned int line_number)
 {
 	int ascii;
 
@@ -23,7 +23,7 @@ void print_char(stack_t **stack, unsigned int line_number)
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @ln: Interger representing the line number of of the opcode.
  */
-void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
+void pstr(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
 	int ascii;
 	stack_t *tmp;
