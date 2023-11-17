@@ -155,17 +155,3 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 	else
 		func(&head, ln);
 }
-
-int is_valid_integer(const char *str)
-{
-    if (str == NULL || *str == '\0')
-        return 0;
-
-    for (int i = 0; str[i] != '\0'; i++)
-    {
-        if (!isdigit(str[i]))
-            return 0;
-    }
-
-    return 1;
-}
