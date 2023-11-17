@@ -11,7 +11,6 @@ void add_to_stack(stack_t **new_node, __attribute__((unused)) unsigned int ln)
     {
         exit(EXIT_FAILURE);
     }
-
     if (!head)
     {
         head = *new_node;

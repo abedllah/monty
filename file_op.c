@@ -76,8 +76,6 @@ int parse_line(char *buffer, int line_number, int format)
  * @value: argument of opcode
  * @format:  storage format. If 0 Nodes will be entered as a stack.
  * @ln: line number
- * if 1 nodes will be entered as a queue.
- * Return: void
  */
 void find_func(char *opcode, char *value, int ln, int format)
 {
@@ -126,7 +124,6 @@ void find_func(char *opcode, char *value, int ln, int format)
  * @val: string representing a numeric value.
  * @ln: line numeber for the instruction.
  * @format: Format specifier. If 0 Nodes will be entered as a stack.
- * if 1 nodes will be entered as a queue.
  */
 void call_fun(op_func func, char *op, char *val, int ln, int format)
 {
