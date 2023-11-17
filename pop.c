@@ -8,14 +8,14 @@
  */
 void pop(stack_t **stack, unsigned int line)
 {
-	stack_t *tmp;
+    if (stack == NULL || *stack == NULL)
+        more_err(7, line);
 
-	if (stack == NULL || *stack == NULL)
-		more_err(7, line);
+    stack_t *tmp = *stack;
+    *stack = (*stack)->next;
 
-	tmp = *stack;
-	*stack = tmp->next;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
-	free(tmp);
+    if (*stack != NULL)
+        (*stack)->prev = NULL;
+
+    free(tmp);
 }
